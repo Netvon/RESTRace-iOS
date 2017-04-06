@@ -11,6 +11,7 @@ import Foundation
 
 struct ErrorResponse: ApiResponse {
 	let message: String
+	let reason: String
 	let name: String
 	let isError: Bool = true
 	
@@ -20,6 +21,7 @@ struct ErrorResponse: ApiResponse {
 				return nil
 		}
 		
+		self.reason = error["reason"] as! String
 		self.message = error["message"] as! String
 		self.name = error["name"] as! String
 	}

@@ -9,6 +9,18 @@
 import Foundation
 
 class RequestHelper {
+	static func createRequest(method: String, url: String) -> URLRequest? {
+		return createRequest(method: method, url: url, headers: nil, json: nil)
+	}
+	
+	static func createRequest(method: String, url: String, headers: [String:String]) -> URLRequest? {
+		return createRequest(method: method, url: url, headers: headers, json: nil)
+	}
+	
+	static func createRequest(method: String, url: String, json: Any) -> URLRequest? {
+		return createRequest(method: method, url: url, headers: nil, json: json)
+	}
+	
 	static func createRequest(method: String, url: String, headers: [String:String]?, json: Any?) -> URLRequest? {
 		do {
 			var request = URLRequest(url: URL(string: url, relativeTo: Config.ApiBaseUrl)!)
@@ -16,7 +28,7 @@ class RequestHelper {
 			
 			
 			if json != nil {
-				let jsonData = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+				let jsonData = try JSONSerialization.data(withJSONObject: json!, options: .prettyPrinted)
 				request.httpBody = jsonData
 				request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
 				

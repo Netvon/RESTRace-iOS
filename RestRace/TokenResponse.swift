@@ -14,6 +14,11 @@ struct TokenResponse: ApiResponse {
 	let token: String
 	let isError: Bool = false
 	
+	init(token: String) {
+		self.token = token
+		self.message = ""
+	}
+	
 	init?(json: [String: Any]) {
 		guard let message = json["message"] as? String,
 			let token = json["token"] as? String

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E233170D1E9685BE000AA44C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233170C1E9685BE000AA44C /* MainController.swift */; };
 		E280E3AD1E9503710039D671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3AC1E9503710039D671 /* AppDelegate.swift */; };
 		E280E3AF1E9503710039D671 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3AE1E9503710039D671 /* ViewController.swift */; };
 		E280E3B21E9503710039D671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280E3B01E9503710039D671 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E233170C1E9685BE000AA44C /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		E280E3A91E9503710039D671 /* RestRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280E3AC1E9503710039D671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E280E3AE1E9503710039D671 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +49,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E233170B1E96854E000AA44C /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E233170C1E9685BE000AA44C /* MainController.swift */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
 		E280E3A01E9503710039D671 = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +77,7 @@
 		E280E3AB1E9503710039D671 /* RestRace */ = {
 			isa = PBXGroup;
 			children = (
+				E233170B1E96854E000AA44C /* controllers */,
 				E280E3C51E952A490039D671 /* business */,
 				E280E3C01E9511EE0039D671 /* models */,
 				E280E3AC1E9503710039D671 /* AppDelegate.swift */,
@@ -176,6 +187,7 @@
 				E280E3C91E952AC90039D671 /* RequestHelper.swift in Sources */,
 				E280E3C41E951BA80039D671 /* ErrorResponse.swift in Sources */,
 				E280E3AF1E9503710039D671 /* ViewController.swift in Sources */,
+				E233170D1E9685BE000AA44C /* MainController.swift in Sources */,
 				E280E3AD1E9503710039D671 /* AppDelegate.swift in Sources */,
 				E280E3CB1E9531280039D671 /* ApiResponse.swift in Sources */,
 				E280E3C21E9512060039D671 /* TokenResponse.swift in Sources */,
@@ -343,6 +355,7 @@
 				E280E3BD1E9503710039D671 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
