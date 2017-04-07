@@ -13,6 +13,7 @@ struct TokenResponse: ApiResponse {
 	let message: String
 	let token: String
 	let isError: Bool = false
+	let status: Int = 200
 	
 	init(token: String) {
 		self.token = token

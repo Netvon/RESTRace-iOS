@@ -10,10 +10,15 @@ import Foundation
 
 
 struct ErrorResponse: ApiResponse {
-	let message: String
-	let reason: String
+	
+	let message: String?
+	let status: Int
+	let reason: String?
 	let name: String
-	let isError: Bool = true
+	
+	let isError: Bool =  false
+	
+	
 	
 	init?(json: [String: Any]) {
 		guard let error = json["error"] as? [String: Any]
@@ -21,8 +26,9 @@ struct ErrorResponse: ApiResponse {
 				return nil
 		}
 		
-		self.reason = error["reason"] as! String
-		self.message = error["message"] as! String
+		self.reason = error["reason"] as? String
+		self.status = error["status"] as! Int
+		self.message = error["message"] as? String
 		self.name = error["name"] as! String
 	}
 	

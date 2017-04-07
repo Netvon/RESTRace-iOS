@@ -9,6 +9,6 @@
 import Foundation
 
 
-protocol ApiResponse {
+protocol ApiResponse: JsonInit {
 	var isError: Bool { get }
 }
