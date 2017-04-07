@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct ErrorResponse: ApiResponse {
+struct ErrorResponse: ApiResponse, Error {
 	
 	let message: String?
 	let status: Int

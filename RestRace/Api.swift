@@ -22,7 +22,15 @@ class Api {
 		}
 	}
 	
-	var user: User? = nil
+	var user: User?  {
+		get {
+			return UserDefaults.standard.object(forKey: "API_USER") as! User?
+		}
+		
+		set(newUser) {
+			UserDefaults.standard.set(newUser, forKey: "API_USER")
+		}
+	}
 	
 	func getNewToken(username: String, password: String, completion: @escaping (ApiResponse) -> Void) {
 		
@@ -85,9 +93,10 @@ class Api {
 		task.resume()
 	}
 	
-	func getCurrentUser(completion: @escaping (ApiResponse) -> Void) {
+	func getCurrentUser(completion: @escaping (User?, ErrorResponse?) -> Void) {
 		
 		let request = RequestHelper.createRequest(method: "GET", url: "/auth/me", headers: ["Authorization": "JWT \(self.token!)"] )
+		
 		
 		let task = URLSession.shared.dataTask(with: request!) {data, response, error in
 			
@@ -101,12 +110,12 @@ class Api {
 			}
 			
 			if let err = ErrorResponse(json: response!) {
-				completion(err)
+				completion(nil, err)
 				return
 			}
 			
 			if let user = User(json: response!) {
-				completion(user)
+				completion(user, nil)
 				return
 			}
 		}
