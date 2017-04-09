@@ -15,6 +15,32 @@ class LoginController: UIViewController {
 	@IBOutlet weak var btnLogin: UIButton!
 	@IBOutlet weak var btnRegister: UIButton!
 	
+	@IBAction func btnRegisterClicked(_ sender: Any) {
+		setLoading(state: true)
+		
+		Api.sharedInstance.registerUser(username: tfUsername.text!, password: tfPassword.text!) { user, error in
+			
+			if error != nil {
+				print("Error: \(error?.message)")
+				
+				DispatchQueue.main.async {
+					self.setLoading(state: false)
+					self.showError(error: ErrorResponse(message: "Register Failed", reason: "Username Taken"))
+				}
+				
+				return
+			}
+			
+			print("NewUser: \(user?.username)")
+			Api.sharedInstance.username = self.tfUsername.text!
+			
+			DispatchQueue.main.async {
+				self.setLoading(state: false)
+				self.tfPassword.text = nil
+			}
+		}
+	}
+	
 	@IBAction func btnLoginClicked(_ sender: Any) {
 		
 		setLoading(state: true)
@@ -25,6 +51,7 @@ class LoginController: UIViewController {
 				print("Error: \(error?.message)")
 				
 				DispatchQueue.main.async {
+					self.setLoading(state: false)
 					self.showError(error: error!)
 				}
 				
@@ -112,7 +139,7 @@ class LoginController: UIViewController {
     }
 	
 	func showError(error: ErrorResponse) {
-		let alert = UIAlertController(title: "Error", message: "\(error.message): \(error.reason)", preferredStyle: .alert)
+		let alert = UIAlertController(title: "Error", message: "\(error.message!): \(error.reason!)", preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
 		
 		self.present(alert, animated: true, completion: nil)

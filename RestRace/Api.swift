@@ -51,6 +51,12 @@ class Api {
 		}
 	}
 	
+	public func registerUser(username: String, password: String, completion: @escaping (User?, ErrorResponse?) -> Void) {
+		
+		RequestHelper.createRequest(method: "POST", url: "/api/users", json: [ "username": username, "password": password ] )?
+			.doApiRequest(completion: completion)
+	}
+	
 	public func getNewToken(username: String, password: String, completion: @escaping (TokenResponse?, ErrorResponse?) -> Void) {
 		
 		RequestHelper.createRequest(method: "POST", url: "/auth/token", json: [ "username": username, "password": password ] )?
@@ -73,6 +79,22 @@ class Api {
 		
 		RequestHelper.createRequest(method: "GET", url: "/auth/me", headers: self.tokenHeader! )?
 				.doApiRequest(completion: completion)
+	}
+	
+	public func date(from dateString: String) -> Date {
+		let formatter = DateFormatter()
+		
+		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+		if let parsedDate = formatter.date(from: dateString) {
+			return parsedDate
+		}
+		
+		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:SSSZ"
+		if let parsedDate = formatter.date(from: dateString) {
+			return parsedDate
+		}
+		
+		return Date.distantPast
 	}
 }
 

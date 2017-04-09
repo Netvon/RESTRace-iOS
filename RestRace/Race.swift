@@ -22,12 +22,16 @@ struct Race: ModelBase {
 	let name: String
 	let description: String?
 	let status: RaceStatus
-	let tags: [String]?
+	let starttime: Date
+	var tags: [String] = []
+	var pubs: [Pub] = []
+	var teams: [Team] = []
 	
 	init?(json: [String : Any]) {
 		guard let id = json["_id"] as? String,
 			let name = json["name"] as? String,
-			let status = json["status"] as? String
+			let status = json["status"] as? String,
+			let starttime = json["starttime"] as? String
 			
 			else {
 				return nil
@@ -36,8 +40,34 @@ struct Race: ModelBase {
 		self.id = id
 		self.name = name
 		self.description = json["description"] as? String
-		self.tags = json["tags"] as! [String]?
+		self.tags = json["tags"] as! [String]
 		self.status = RaceStatus.init(rawValue: status)!
+		self.starttime = Api.sharedInstance.date(from: starttime)
+		
+		let jsonPubs = json["pubs"] as? [[String: Any]]
+		
+		if jsonPubs != nil {
+			for pub in jsonPubs! {
+				let newPub = Pub(json: pub)
+				
+				if newPub != nil {
+					pubs.append(Pub(json: pub)!)
+				}
+			}
+		}
+		
+		let jsonTeams = json["teams"] as? [[String: Any]]
+		
+		if jsonTeams != nil {
+			for team in jsonTeams! {
+				let newTeam = Team(json: team)
+				
+				if newTeam != nil {
+					teams.append(Team(json: team)!)
+				}
+			}
+		}
+		
 	}
 	
 }

@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
+import MapKit
 
 class MeController: UIViewController {
 	
 	@IBOutlet weak var lblUsername: UILabel!
+	@IBOutlet weak var mapView: MKMapView!
 	
 	@IBAction func logoutClicked(_ sender: Any) {
 		

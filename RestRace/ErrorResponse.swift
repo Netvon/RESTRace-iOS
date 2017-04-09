@@ -12,13 +12,18 @@ import Foundation
 struct ErrorResponse: ApiResponse, Error {
 	
 	let message: String?
-	let status: Int
+	var status: Int? = nil
 	let reason: String?
-	let name: String
+	var name: String? = nil
 	
-	let isError: Bool =  false
+	let isError: Bool = true
 	
+	var values: [String?] = []
 	
+	init(message: String, reason: String) {
+		self.message = message
+		self.reason = reason
+	}
 	
 	init?(json: [String: Any]) {
 		guard let error = json["error"] as? [String: Any]
@@ -27,9 +32,13 @@ struct ErrorResponse: ApiResponse, Error {
 		}
 		
 		self.reason = error["reason"] as? String
-		self.status = error["status"] as! Int
+		self.status = error["status"] as? Int
 		self.message = error["message"] as? String
-		self.name = error["name"] as! String
+		self.name = error["name"] as? String
+		
+		self.values = error.map { key, value in
+			return value as? String
+		}
 	}
 	
 	func show() {

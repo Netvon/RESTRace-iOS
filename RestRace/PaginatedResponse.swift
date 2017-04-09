@@ -65,7 +65,7 @@ struct PaginatedResponse<T: JsonInit>: ApiResponse {
 		self.next = json["next"] as? String
 		self.prev = json["prev"] as? String
 		
-		for var item in json["items"] as! [[String: Any]] {
+		for item in json["items"] as! [[String: Any]] {
 			items.append(T(json: item)!)
 		}
 	}
