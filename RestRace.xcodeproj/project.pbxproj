@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E233170D1E9685BE000AA44C /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E233170C1E9685BE000AA44C /* MainController.swift */; };
+		E26AD05B1E9A559E00924D6D /* ModelBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26AD05A1E9A559D00924D6D /* ModelBase.swift */; };
+		E26AD05D1E9A806600924D6D /* RaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26AD05C1E9A806600924D6D /* RaceController.swift */; };
 		E272A5351E97AA86004AA4CD /* PaginatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A5341E97AA86004AA4CD /* PaginatedResponse.swift */; };
 		E272A5371E97B3F2004AA4CD /* JsonInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A5361E97B3F2004AA4CD /* JsonInit.swift */; };
 		E272A5391E97B8D1004AA4CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A5381E97B8D1004AA4CD /* User.swift */; };
@@ -24,10 +26,14 @@
 		E280E3C71E952A580039D671 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3C61E952A580039D671 /* Api.swift */; };
 		E280E3C91E952AC90039D671 /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3C81E952AC90039D671 /* RequestHelper.swift */; };
 		E280E3CB1E9531280039D671 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3CA1E9531280039D671 /* ApiResponse.swift */; };
+		E29970781E9920A800C09530 /* RacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970771E9920A800C09530 /* RacesController.swift */; };
+		E299707A1E992CC000C09530 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970791E992CC000C09530 /* Race.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E233170C1E9685BE000AA44C /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		E26AD05A1E9A559D00924D6D /* ModelBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelBase.swift; sourceTree = "<group>"; };
+		E26AD05C1E9A806600924D6D /* RaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceController.swift; sourceTree = "<group>"; };
 		E272A5341E97AA86004AA4CD /* PaginatedResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedResponse.swift; sourceTree = "<group>"; };
 		E272A5361E97B3F2004AA4CD /* JsonInit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonInit.swift; sourceTree = "<group>"; };
 		E272A5381E97B8D1004AA4CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -46,6 +52,8 @@
 		E280E3C61E952A580039D671 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		E280E3C81E952AC90039D671 /* RequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
 		E280E3CA1E9531280039D671 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
+		E29970771E9920A800C09530 /* RacesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacesController.swift; sourceTree = "<group>"; };
+		E29970791E992CC000C09530 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,8 @@
 				E233170C1E9685BE000AA44C /* MainController.swift */,
 				E272A53A1E97D859004AA4CD /* LoadController.swift */,
 				E272A53C1E97DD60004AA4CD /* MeController.swift */,
+				E29970771E9920A800C09530 /* RacesController.swift */,
+				E26AD05C1E9A806600924D6D /* RaceController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -112,6 +122,8 @@
 				E272A5341E97AA86004AA4CD /* PaginatedResponse.swift */,
 				E272A5361E97B3F2004AA4CD /* JsonInit.swift */,
 				E272A5381E97B8D1004AA4CD /* User.swift */,
+				E29970791E992CC000C09530 /* Race.swift */,
+				E26AD05A1E9A559D00924D6D /* ModelBase.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -200,8 +212,10 @@
 			files = (
 				E280E3C71E952A580039D671 /* Api.swift in Sources */,
 				E280E3C91E952AC90039D671 /* RequestHelper.swift in Sources */,
+				E26AD05D1E9A806600924D6D /* RaceController.swift in Sources */,
 				E280E3C41E951BA80039D671 /* ErrorResponse.swift in Sources */,
 				E280E3AF1E9503710039D671 /* LoginController.swift in Sources */,
+				E299707A1E992CC000C09530 /* Race.swift in Sources */,
 				E272A5351E97AA86004AA4CD /* PaginatedResponse.swift in Sources */,
 				E233170D1E9685BE000AA44C /* MainController.swift in Sources */,
 				E280E3AD1E9503710039D671 /* AppDelegate.swift in Sources */,
@@ -209,9 +223,11 @@
 				E272A5391E97B8D1004AA4CD /* User.swift in Sources */,
 				E272A53B1E97D859004AA4CD /* LoadController.swift in Sources */,
 				E280E3CB1E9531280039D671 /* ApiResponse.swift in Sources */,
+				E29970781E9920A800C09530 /* RacesController.swift in Sources */,
 				E272A53D1E97DD60004AA4CD /* MeController.swift in Sources */,
 				E280E3C21E9512060039D671 /* TokenResponse.swift in Sources */,
 				E280E3BF1E9507D50039D671 /* Config.swift in Sources */,
+				E26AD05B1E9A559E00924D6D /* ModelBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

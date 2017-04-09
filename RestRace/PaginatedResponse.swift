@@ -23,6 +23,26 @@ struct PaginatedResponse<T: JsonInit>: ApiResponse {
 	
 	var items: Array<T> = []
 	
+	var nextRequest: URLRequest? {
+		get {
+			if next != nil {
+				return RequestHelper.createRequest(method: "GET", url: next!, headers: Api.sharedInstance.tokenHeader!)
+			}
+			
+			return nil
+		}
+	}
+	
+	var prevRequest: URLRequest? {
+		get {
+			if next != nil {
+				return RequestHelper.createRequest(method: "GET", url: prev!, headers: Api.sharedInstance.tokenHeader!)
+			}
+			
+			return nil
+		}
+	}
+	
 	
 	init?(json: [String: Any]) {
 		guard	let limit = json["limit"] as? Int,

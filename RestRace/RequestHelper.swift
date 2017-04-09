@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class RequestHelper {
 	static func createRequest(method: String, url: String) -> URLRequest? {
 		return createRequest(method: method, url: url, headers: nil, json: nil)
@@ -22,8 +23,10 @@ class RequestHelper {
 	}
 	
 	static func createRequest(method: String, url: String, headers: [String:String]?, json: Any?) -> URLRequest? {
+		
 		do {
-			var request = URLRequest(url: URL(string: url, relativeTo: Config.ApiBaseUrl)!)
+			let base = Config.ApiBaseUrl
+			var request = URLRequest(url: URL(string: url, relativeTo: base)!)
 			request.httpMethod = method
 			
 			
@@ -44,5 +47,38 @@ class RequestHelper {
 		} catch {
 			return nil
 		}
+	}
+	
+	static func doRequest<T: ApiResponse>(with request: URLRequest?, completion: @escaping (T?, ErrorResponse?) -> Void) {
+		
+		let task = URLSession.shared.dataTask(with: request!) {data, response, error in
+			
+			guard let data = data, error == nil else {
+				print("Something went wrong")
+				return
+			}
+			
+			guard let response = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] else {
+				return
+			}
+			
+			if let err = ErrorResponse(json: response!) {
+				completion(nil, err)
+				return
+			}
+			
+			if let out = T(json: response!) {
+				completion(out, nil)
+				return
+			}
+		}
+		
+		task.resume()
+	}
+}
+
+extension URLRequest {
+	func doApiRequest<T: ApiResponse>(completion: @escaping (T?, ErrorResponse?) -> Void) {
+		RequestHelper.doRequest(with: self, completion: completion)
 	}
 }

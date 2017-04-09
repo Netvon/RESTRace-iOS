@@ -10,5 +10,9 @@ import Foundation
 
 
 class Config {
-	static let ApiBaseUrl = URL(string: "https://damp-sierra-83365.herokuapp.com");
+	static var ApiBaseUrl: URL {
+		get{
+			return URL(string: "https://damp-sierra-83365.herokuapp.com")!
+		}
+	}
 }

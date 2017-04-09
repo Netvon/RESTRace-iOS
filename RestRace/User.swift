@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct User: JsonInit, ApiResponse {
+struct User: ModelBase {
 	
 	let id: String
 	let username: String?

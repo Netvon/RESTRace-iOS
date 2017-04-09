@@ -19,26 +19,25 @@ class LoginController: UIViewController {
 		
 		setLoading(state: true)
 		
-		Api.sharedInstance.getNewToken(username: tfUsername.text!, password: tfPassword.text!) { response in
-			switch(response) {
-			case let error as ErrorResponse:
-				print("Error: \(error.message)")
-
+		Api.sharedInstance.getNewToken(username: tfUsername.text!, password: tfPassword.text!) { response, error in
+			
+			if error != nil {
+				print("Error: \(error?.message)")
+				
 				DispatchQueue.main.async {
-					self.showError(error: error)
+					self.showError(error: error!)
 				}
-
-			case let token as TokenResponse:
-				print("Token \(token.token)")
-
-
-			default:
-				print("Unkown error")
+				
+				return
 			}
+			
+			print("Token \(response?.token)")
+			Api.sharedInstance.token = response?.token
+			Api.sharedInstance.username = self.tfUsername.text!
 	
 			DispatchQueue.main.async {
 				self.setLoading(state: false)
-				self.performSegue(withIdentifier: "showTabController", sender: self)
+				self.performSegue(withIdentifier: "showMain", sender: self)
 			}
 		}
 		
@@ -99,13 +98,16 @@ class LoginController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		if Api.sharedInstance.token != nil {
-			self.performSegue(withIdentifier: "showTabController", sender: self)
+			self.performSegue(withIdentifier: "showMain", sender: self)
+		}
+		
+		if let username = Api.sharedInstance.username {
+			tfUsername.text = username
 		}
 	}
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
 		
     }
 	
