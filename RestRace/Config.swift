@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class Config {
 	static var ApiBaseUrl: URL {
 		get{

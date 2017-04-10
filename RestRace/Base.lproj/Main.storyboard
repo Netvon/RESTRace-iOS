@@ -155,26 +155,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vpv-Lm-H0m">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                                 <color key="barTintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title=" " prompt=" " id="xAq-tS-Cgm"/>
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmZ-1g-xhN">
-                                <rect key="frame" x="16" y="35" width="288" height="41"/>
+                                <rect key="frame" x="16" y="84" width="288" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v7U-EB-qR9">
-                                <rect key="frame" x="16" y="75" width="288" height="21"/>
+                                <rect key="frame" x="16" y="124" width="288" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sA1-SI-1y4">
-                                <rect key="frame" x="16" y="111" width="48" height="30"/>
+                                <rect key="frame" x="16" y="160" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutClicked:" destination="NiD-ms-DMi" eventType="primaryActionTriggered" id="Hi3-NU-VqJ"/>
@@ -264,9 +264,9 @@
                             <constraint firstItem="8ka-zt-WgZ" firstAttribute="leading" secondItem="992-yx-rCz" secondAttribute="leadingMargin" constant="-16" id="Mth-AK-5ly"/>
                             <constraint firstItem="YDh-YO-1fK" firstAttribute="width" secondItem="992-yx-rCz" secondAttribute="width" id="aim-84-yVT"/>
                             <constraint firstItem="YDh-YO-1fK" firstAttribute="height" secondItem="992-yx-rCz" secondAttribute="height" id="ikL-bb-U7B"/>
+                            <constraint firstItem="8ka-zt-WgZ" firstAttribute="top" secondItem="YDh-YO-1fK" secondAttribute="top" id="kmU-Kf-4xm"/>
                             <constraint firstItem="YDh-YO-1fK" firstAttribute="centerX" secondItem="992-yx-rCz" secondAttribute="centerX" id="ocG-uW-1Iv"/>
                             <constraint firstItem="Lhv-Xc-fn8" firstAttribute="top" secondItem="8ka-zt-WgZ" secondAttribute="bottom" id="waG-nz-G2j"/>
-                            <constraint firstItem="8ka-zt-WgZ" firstAttribute="top" secondItem="7Yr-dU-GvH" secondAttribute="bottom" constant="-64" id="yoO-e9-SP9"/>
                             <constraint firstItem="YDh-YO-1fK" firstAttribute="centerY" secondItem="992-yx-rCz" secondAttribute="centerY" id="zd9-J7-XpK"/>
                         </constraints>
                     </view>
@@ -404,7 +404,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UaG-GK-cZh">
-                                <rect key="frame" x="16" y="30" width="288" height="538"/>
+                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <color key="backgroundColor" red="0.98502887630264502" green="1" blue="0.79738017488399537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -415,21 +415,21 @@
                                 </connections>
                             </textView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kWp-J9-8DK">
-                                <rect key="frame" x="16.5" y="30" width="288" height="538"/>
+                                <rect key="frame" x="0.5" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" red="0.98502887630000002" green="1" blue="0.79738017490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.98502887630000002" green="1" blue="0.79738017490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kWp-J9-8DK" firstAttribute="width" secondItem="UaG-GK-cZh" secondAttribute="width" id="M7c-zS-xsg"/>
+                            <constraint firstItem="UaG-GK-cZh" firstAttribute="top" secondItem="kWp-J9-8DK" secondAttribute="top" id="1lE-Sf-42h"/>
+                            <constraint firstItem="kWp-J9-8DK" firstAttribute="height" secondItem="3Nk-P0-ZJT" secondAttribute="height" id="JHG-1K-0GE"/>
                             <constraint firstItem="QT6-bY-Qdc" firstAttribute="top" secondItem="UaG-GK-cZh" secondAttribute="bottom" id="TaR-Xf-4ZZ"/>
-                            <constraint firstItem="kWp-J9-8DK" firstAttribute="centerY" secondItem="UaG-GK-cZh" secondAttribute="centerY" id="eaU-Zf-VoB"/>
-                            <constraint firstItem="UaG-GK-cZh" firstAttribute="top" secondItem="TOe-td-09H" secondAttribute="bottom" constant="-64" id="fJK-sA-rFZ"/>
-                            <constraint firstItem="kWp-J9-8DK" firstAttribute="height" secondItem="UaG-GK-cZh" secondAttribute="height" id="nU2-6Z-wy8"/>
+                            <constraint firstItem="kWp-J9-8DK" firstAttribute="width" secondItem="3Nk-P0-ZJT" secondAttribute="width" id="ThJ-hx-kxR"/>
+                            <constraint firstItem="kWp-J9-8DK" firstAttribute="centerX" secondItem="3Nk-P0-ZJT" secondAttribute="centerX" id="UQR-yb-a7E"/>
+                            <constraint firstItem="kWp-J9-8DK" firstAttribute="centerY" secondItem="3Nk-P0-ZJT" secondAttribute="centerY" id="cQA-7g-VjO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="UaG-GK-cZh" secondAttribute="leading" id="r6d-HE-ng0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UaG-GK-cZh" secondAttribute="trailing" id="rnH-DA-ea8"/>
-                            <constraint firstItem="kWp-J9-8DK" firstAttribute="centerX" secondItem="UaG-GK-cZh" secondAttribute="centerX" id="x8C-aA-f5l"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Description" prompt="Race Name" id="7Is-UQ-Z5e">
