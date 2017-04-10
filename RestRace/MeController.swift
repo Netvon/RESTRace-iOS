@@ -2,16 +2,17 @@
 //  MeController.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 07/04/2017.
+//   07/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 
 import UIKit
 import MapKit
 
-class MeController: UIViewController {
+class MeController: BaseController {
 	
 	@IBOutlet weak var lblUsername: UILabel!
+    @IBOutlet weak var lblName: UILabel!
 	@IBOutlet weak var mapView: MKMapView!
 	
 	@IBAction func logoutClicked(_ sender: Any) {
@@ -41,7 +42,9 @@ class MeController: UIViewController {
 		
 		Api.sharedInstance.getCurrentUser { user, error in
 			if error != nil {
-				// handle errors
+				self.showError(error: error!)
+				
+				return
 			}
 			
 			Api.sharedInstance.user = user
@@ -54,6 +57,11 @@ class MeController: UIViewController {
 	
 	private func updateLabels() {
 		self.lblUsername.text = Api.sharedInstance.user?.username!
+		
+		let first: String = Api.sharedInstance.user?.firstname ?? ""
+		let last: String = Api.sharedInstance.user?.lastname ?? ""
+		
+        self.lblName.text = "\(first) \(last)"
 	}
 	
 }

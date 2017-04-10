@@ -2,13 +2,13 @@
 //  PaginatedResponse.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 07/04/2017.
+//   07/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 
 import Foundation
 
-struct PaginatedResponse<T: JsonInit>: ApiResponse {
+class PaginatedResponse<T: JsonInit>: ApiResponse {
 	let isError: Bool = false
 	
 	let limit: Int
@@ -44,7 +44,7 @@ struct PaginatedResponse<T: JsonInit>: ApiResponse {
 	}
 	
 	
-	init?(json: [String: Any]) {
+	required init?(json: [String: Any]) {
 		guard	let limit = json["limit"] as? Int,
 				let skip = json["skip"] as? Int,
 				let currentPage = json["currentPage"] as? Int,

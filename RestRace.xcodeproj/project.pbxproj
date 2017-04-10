@@ -34,6 +34,8 @@
 		E29970781E9920A800C09530 /* RacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970771E9920A800C09530 /* RacesController.swift */; };
 		E299707A1E992CC000C09530 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970791E992CC000C09530 /* Race.swift */; };
 		E2FA71621E9BBE16009FA141 /* EditRaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA71611E9BBE16009FA141 /* EditRaceController.swift */; };
+		E2FA71641E9BF27E009FA141 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA71631E9BF27E009FA141 /* BaseController.swift */; };
+		E2FA71661E9C1C48009FA141 /* RaceUpdatedResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA71651E9C1C48009FA141 /* RaceUpdatedResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,8 @@
 		E29970771E9920A800C09530 /* RacesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacesController.swift; sourceTree = "<group>"; };
 		E29970791E992CC000C09530 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
 		E2FA71611E9BBE16009FA141 /* EditRaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRaceController.swift; sourceTree = "<group>"; };
+		E2FA71631E9BF27E009FA141 /* BaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		E2FA71651E9C1C48009FA141 /* RaceUpdatedResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaceUpdatedResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				E2349B3A1E9ACB0500C68C95 /* PubController.swift */,
 				E2349B3C1E9ADDF400C68C95 /* TeamController.swift */,
 				E2FA71611E9BBE16009FA141 /* EditRaceController.swift */,
+				E2FA71631E9BF27E009FA141 /* BaseController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 				E280E3C31E951BA80039D671 /* ErrorResponse.swift */,
 				E280E3CA1E9531280039D671 /* ApiResponse.swift */,
 				E272A5341E97AA86004AA4CD /* PaginatedResponse.swift */,
+				E2FA71651E9C1C48009FA141 /* RaceUpdatedResponse.swift */,
 			);
 			name = Responses;
 			sourceTree = "<group>";
@@ -258,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FA71661E9C1C48009FA141 /* RaceUpdatedResponse.swift in Sources */,
 				E280E3C71E952A580039D671 /* Api.swift in Sources */,
 				E280E3C91E952AC90039D671 /* RequestHelper.swift in Sources */,
 				E2349B341E9AA61700C68C95 /* Pub.swift in Sources */,
@@ -280,6 +287,7 @@
 				E272A53D1E97DD60004AA4CD /* MeController.swift in Sources */,
 				E280E3C21E9512060039D671 /* TokenResponse.swift in Sources */,
 				E280E3BF1E9507D50039D671 /* Config.swift in Sources */,
+				E2FA71641E9BF27E009FA141 /* BaseController.swift in Sources */,
 				E26AD05B1E9A559E00924D6D /* ModelBase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

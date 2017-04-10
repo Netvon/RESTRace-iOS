@@ -2,7 +2,7 @@
 //  Pub.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 09/04/2017.
+//   09/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 

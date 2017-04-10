@@ -2,13 +2,13 @@
 //  Races.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 08/04/2017.
+//   08/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 
 import Foundation
 
-struct Race: ModelBase {
+class Race: ModelBase {
 	
 	let isError = false
 	
@@ -20,14 +20,14 @@ struct Race: ModelBase {
 	
 	let id: String
 	let name: String
-	let description: String?
+	var description: String? = nil
 	let status: RaceStatus
 	let starttime: Date
 	var tags: [String] = []
 	var pubs: [Pub] = []
 	var teams: [Team] = []
 	
-	init?(json: [String : Any]) {
+	required init?(json: [String : Any]) {
 		guard let id = json["_id"] as? String,
 			let name = json["name"] as? String,
 			let status = json["status"] as? String,

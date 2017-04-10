@@ -2,7 +2,7 @@
 //  Api.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 05/04/2017.
+//   05/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 
@@ -77,7 +77,7 @@ class Api {
 			.doApiRequest(completion: completion)
 	}
 	
-	public func putRaces(id: String, data: [String: Any], completion: @escaping (Race?, ErrorResponse?) -> Void) {
+	public func putRaces(id: String, data: [String: Any], completion: @escaping (RaceUpdatedResponse?, ErrorResponse?) -> Void) {
 		
 		let url = "/api/races/\(id)"
 		

@@ -2,7 +2,7 @@
 //  RacesController.swift
 //  RestRace
 //
-//  Created by Tom van Nimwegen on 08/04/2017.
+//   08/04/2017.
 //  Copyright © 2017 Tom van Nimwegen & Luuk Spierings. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class RacesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RacesController: BaseController, UITableViewDelegate, UITableViewDataSource {
 	
 	@IBOutlet weak var tvRaces: UITableView!
 	@IBOutlet weak var aiLoading: UIActivityIndicatorView!
@@ -31,9 +31,11 @@ class RacesController: UIViewController, UITableViewDelegate, UITableViewDataSou
 	var skip = 0
 	
 	override func viewDidLoad() {
-		super.viewDidLoad()
-		
 		self.loadMore()
+	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		tvRaces.reloadData()
 	}
 	
 	func loadMore() {
@@ -42,7 +44,12 @@ class RacesController: UIViewController, UITableViewDelegate, UITableViewDataSou
 		
 		Api.sharedInstance.getRaces(limit: limit, skip: skip) { races, error in
 			if error != nil {
-				//handle error
+				
+				DispatchQueue.main.async {
+					self.bbMore.isEnabled = false
+					self.aiLoading.stopAnimating()
+				}
+				
 				return
 			}
 			
