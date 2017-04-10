@@ -12,7 +12,7 @@ import UIKit
 class LoadController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
-		Api.sharedInstance.token = nil
+		//Api.sharedInstance.token = nil
 		
 		
 		if Api.sharedInstance.token != nil {

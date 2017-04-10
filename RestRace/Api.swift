@@ -69,9 +69,19 @@ class Api {
 			.doApiRequest(completion: completion)
 	}
 	
-	public func getRaces(limit: Int = 20, sort: String? = nil, filter: String? = nil, completion: @escaping (PaginatedResponse<Race>?, ErrorResponse?) -> Void) {
+	public func getRaces(limit: Int = 20, skip: Int = 0, completion: @escaping (PaginatedResponse<Race>?, ErrorResponse?) -> Void) {
 		
-		RequestHelper.createRequest(method: "GET", url: "/api/races?limit=\(limit)", headers: self.tokenHeader! )?
+		let url = "/api/races?limit=\(limit)&skip=\(skip)"
+		
+		RequestHelper.createRequest(method: "GET", url: url, headers: self.tokenHeader! )?
+			.doApiRequest(completion: completion)
+	}
+	
+	public func putRaces(id: String, data: [String: Any], completion: @escaping (Race?, ErrorResponse?) -> Void) {
+		
+		let url = "/api/races/\(id)"
+		
+		RequestHelper.createRequest(method: "PUT", url: url, headers: self.tokenHeader!, json: data )?
 			.doApiRequest(completion: completion)
 	}
 	

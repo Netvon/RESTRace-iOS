@@ -19,6 +19,7 @@
 		E272A5391E97B8D1004AA4CD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A5381E97B8D1004AA4CD /* User.swift */; };
 		E272A53B1E97D859004AA4CD /* LoadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A53A1E97D859004AA4CD /* LoadController.swift */; };
 		E272A53D1E97DD60004AA4CD /* MeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272A53C1E97DD60004AA4CD /* MeController.swift */; };
+		E27B95091E9BA9B700D76D8E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27B95081E9BA9B700D76D8E /* MapKit.framework */; };
 		E280E3AD1E9503710039D671 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3AC1E9503710039D671 /* AppDelegate.swift */; };
 		E280E3AF1E9503710039D671 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3AE1E9503710039D671 /* LoginController.swift */; };
 		E280E3B21E9503710039D671 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E280E3B01E9503710039D671 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		E280E3CB1E9531280039D671 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E280E3CA1E9531280039D671 /* ApiResponse.swift */; };
 		E29970781E9920A800C09530 /* RacesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970771E9920A800C09530 /* RacesController.swift */; };
 		E299707A1E992CC000C09530 /* Race.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29970791E992CC000C09530 /* Race.swift */; };
+		E2FA71621E9BBE16009FA141 /* EditRaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FA71611E9BBE16009FA141 /* EditRaceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,7 @@
 		E272A5381E97B8D1004AA4CD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E272A53A1E97D859004AA4CD /* LoadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadController.swift; sourceTree = "<group>"; };
 		E272A53C1E97DD60004AA4CD /* MeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeController.swift; sourceTree = "<group>"; };
+		E27B95081E9BA9B700D76D8E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E280E3A91E9503710039D671 /* RestRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E280E3AC1E9503710039D671 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E280E3AE1E9503710039D671 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		E280E3CA1E9531280039D671 /* ApiResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		E29970771E9920A800C09530 /* RacesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RacesController.swift; sourceTree = "<group>"; };
 		E29970791E992CC000C09530 /* Race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Race.swift; sourceTree = "<group>"; };
+		E2FA71611E9BBE16009FA141 /* EditRaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRaceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27B95091E9BA9B700D76D8E /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +91,7 @@
 				E26AD05C1E9A806600924D6D /* RaceController.swift */,
 				E2349B3A1E9ACB0500C68C95 /* PubController.swift */,
 				E2349B3C1E9ADDF400C68C95 /* TeamController.swift */,
+				E2FA71611E9BBE16009FA141 /* EditRaceController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -110,11 +116,20 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		E27B95071E9BA9B700D76D8E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E27B95081E9BA9B700D76D8E /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E280E3A01E9503710039D671 = {
 			isa = PBXGroup;
 			children = (
 				E280E3AB1E9503710039D671 /* RestRace */,
 				E280E3AA1E9503710039D671 /* Products */,
+				E27B95071E9BA9B700D76D8E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -199,6 +214,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = S5V8C78FAU;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -256,6 +276,7 @@
 				E272A53B1E97D859004AA4CD /* LoadController.swift in Sources */,
 				E280E3CB1E9531280039D671 /* ApiResponse.swift in Sources */,
 				E29970781E9920A800C09530 /* RacesController.swift in Sources */,
+				E2FA71621E9BBE16009FA141 /* EditRaceController.swift in Sources */,
 				E272A53D1E97DD60004AA4CD /* MeController.swift in Sources */,
 				E280E3C21E9512060039D671 /* TokenResponse.swift in Sources */,
 				E280E3BF1E9507D50039D671 /* Config.swift in Sources */,

@@ -9,6 +9,7 @@
 import Foundation
 
 import UIKit
+import EventKit
 
 
 class RaceController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -64,9 +65,11 @@ class RaceController: UIViewController, UITableViewDataSource, UITableViewDelega
 			if indexPath.row == 0 {
 				cell.textLabel?.text = race?.description
 				cell.detailTextLabel?.text = "Description"
+				cell.accessoryType = .disclosureIndicator
 			} else {
 				cell.textLabel?.text = race?.starttime.description(with: Locale.current)
 				cell.detailTextLabel?.text = "Start Time"
+				cell.accessoryType = .disclosureIndicator
 			}
 			
 			return cell
@@ -78,6 +81,7 @@ class RaceController: UIViewController, UITableViewDataSource, UITableViewDelega
 		case 2:
 			let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "teamCell")
 			cell.textLabel?.text = race?.teams[indexPath.row].name
+			cell.accessoryType = .disclosureIndicator
 			
 			let count = (race?.teams[indexPath.row].users.count)!
 			if count == 1 {
@@ -90,6 +94,7 @@ class RaceController: UIViewController, UITableViewDataSource, UITableViewDelega
 		case 3:
 			let cell = UITableViewCell(style: .default, reuseIdentifier: "pubCell")
 			cell.textLabel?.text = race?.pubs[indexPath.row].name
+			cell.accessoryType = .disclosureIndicator
 			return cell
 		default:
 			return UITableViewCell(style: .default, reuseIdentifier: "cell")
@@ -101,7 +106,64 @@ class RaceController: UIViewController, UITableViewDataSource, UITableViewDelega
 			self.performSegue(withIdentifier: "showPubDetail", sender: self)
 		} else if indexPath.section == 2 {
 			self.performSegue(withIdentifier: "showTeamDetail", sender: self)
+		} else if indexPath.section == 0 && indexPath.row == 1 {
+			self.createCallEvent()
+		} else if indexPath.section == 0 && indexPath.row == 0 {
+			self.performSegue(withIdentifier: "showEditDescription", sender: self)
 		}
+	}
+	
+	func createCallEvent() {
+		
+		let eventStore: EKEventStore = EKEventStore()
+		
+		eventStore.requestAccess(to: .event) { (granted, error) in
+			
+			if (granted) && (error == nil) {
+				print("granted \(granted)")
+				print("error \(error)")
+				
+				let event:EKEvent = EKEvent(eventStore: eventStore)
+				
+				event.title = (self.race?.name)!
+				event.startDate = (self.race?.starttime)!
+				event.endDate = event.startDate.addingTimeInterval(TimeInterval(1 * 60 * 60))
+				event.calendar = eventStore.defaultCalendarForNewEvents
+				event.notes = self.race?.description
+				
+				do {
+					try eventStore.save(event, span: .thisEvent)
+				} catch let error as NSError {
+					DispatchQueue.main.async {
+						self.showError(error: error)
+					}
+				}
+				
+				DispatchQueue.main.async {
+					self.showMessage(message: "Event saved to calendar")
+				}
+			}
+			else{
+				
+				DispatchQueue.main.async {
+					self.showError(error: error!)
+				}
+			}
+		}
+	}
+	
+	func showMessage(message: String) {
+		let alert = UIAlertController(title: "Added Event", message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+		
+		self.present(alert, animated: true, completion: nil)
+	}
+	
+	func showError(error: Error) {
+		let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+		
+		self.present(alert, animated: true, completion: nil)
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -115,6 +177,9 @@ class RaceController: UIViewController, UITableViewDataSource, UITableViewDelega
 				let controller = segue.destination as! TeamController
 				controller.team = race?.teams[indexPath.row]
 			}
+		} else if segue.identifier == "showEditDescription" {
+			let controller = segue.destination as! EditRaceController
+			controller.race = race
 		}
-	}
+ 	}
 }

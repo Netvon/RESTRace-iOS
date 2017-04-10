@@ -20,7 +20,6 @@ class MeController: UIViewController {
 		alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
 		alert.addAction(UIAlertAction(title: "Yes", style: .destructive) { action in
 			Api.sharedInstance.token = nil
-			Api.sharedInstance.user = nil
 			
 			self.performSegue(withIdentifier: "showLogin", sender: self)
 		})

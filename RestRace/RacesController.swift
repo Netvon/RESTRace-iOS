@@ -15,24 +15,56 @@ class RacesController: UIViewController, UITableViewDelegate, UITableViewDataSou
 	@IBOutlet weak var tvRaces: UITableView!
 	@IBOutlet weak var aiLoading: UIActivityIndicatorView!
 	
+	@IBOutlet weak var bbMore: UIBarButtonItem!
+	@IBOutlet weak var bbReload: UIBarButtonItem!
+	
+	@IBAction func btnMoreClicked(_ sender: Any) {
+		self.loadMore()
+	}
+	@IBAction func btnReloadClicked(_ sender: Any) {
+		self.reload()
+	}
+	
 	var races = [Race]()
+	
+	var limit = 5
+	var skip = 0
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		Api.sharedInstance.getRaces { races, error in
+		self.loadMore()
+	}
+	
+	func loadMore() {
+		
+		self.aiLoading.startAnimating()
+		
+		Api.sharedInstance.getRaces(limit: limit, skip: skip) { races, error in
 			if error != nil {
 				//handle error
 				return
 			}
 			
-			self.races = (races?.items)!
+			for race in (races?.items)! {
+				self.races.append(race)
+			}
+			
+			self.skip += self.limit
 			
 			DispatchQueue.main.async {
+				self.bbMore.isEnabled = races?.next != nil
 				self.tvRaces.reloadData()
 				self.aiLoading.stopAnimating()
 			}
 		}
+	}
+	
+	func reload() {
+		skip = 0
+		
+		races = [Race]()
+		loadMore()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -48,6 +80,7 @@ class RacesController: UIViewController, UITableViewDelegate, UITableViewDataSou
 		
 		cell.textLabel?.text = races[indexPath.row].name
 		cell.detailTextLabel?.text = races[indexPath.row].description
+		cell.accessoryType = .disclosureIndicator
 		
 		return cell
 	}

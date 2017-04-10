@@ -136,7 +136,13 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+		self.view.addGestureRecognizer(tap)
     }
+	
+	func dissmissKeyboard() {
+		self.view.endEditing(true)
+	}
 	
 	func showError(error: ErrorResponse) {
 		let alert = UIAlertController(title: "Error", message: "\(error.message!): \(error.reason!)", preferredStyle: .alert)
